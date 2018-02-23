@@ -4,13 +4,14 @@ const {events, Job} = require("brigadier")
 const helmTag = "v2.5.1"
 
 events.on("push", (e,p) =>{
+  var name = "example-hello"
   console.log('running slack notify')
   var slack = new Job("slack-notify", "technosophos/slack-notify:latest", ["/slack-notify"])
   slack.storage.enabled = false
   slack.env = {
     SLACK_WEBHOOK: p.secrets.SLACK_WEBHOOK,
     SLACK_USERNAME: "BrigadeBot",
-    SLACK_TITLE: ":helm: upgraded " + name,
+    SLACK_TITLE: ":helm: pushed changes " + name,
     SLACK_MESSAGE: result.toString(),
     SLACK_COLOR: "#0000ff"
   }
