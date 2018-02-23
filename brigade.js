@@ -12,7 +12,7 @@ events.on("push", (e,p) =>{
     SLACK_WEBHOOK: p.secrets.SLACK_WEBHOOK,
     SLACK_USERNAME: "BrigadeBot",
     SLACK_TITLE: ":helm: pushed changes " + name,
-    SLACK_MESSAGE: result.toString(),
+    SLACK_MESSAGE: "some changes",
     SLACK_COLOR: "#0000ff"
   }
   slack.run()
